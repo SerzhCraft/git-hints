@@ -13,3 +13,15 @@
 
 ### HEAD
 HEAD — это указатель на текущий коммит или ветку. Обычно указывает на последний коммит в текущей ветке.
+
+## Статусы файлов в Git
+
+Файлы в Git проходят следующий жизненный цикл:
+
+```mermaid
+graph LR;
+  untracked -- "git add" --> staged;
+  modified -- "git add" --> staged;
+  staged -- "git commit" --> tracked/committed;
+  tracked/committed -- "изменения" --> modified;
+  staged -- "git rm --cached" --> untracked;
